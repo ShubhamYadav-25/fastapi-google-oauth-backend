@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment
+venv/
+.venv/
+
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+logs/
+*.pot
+
+# Database / Migrations
+migrations/versions/*.pyc
+migrations/__pycache__/
+
+# FastAPI / Uvicorn
+*.pid
+*.sock
+*.log
+__pycache__/
+
+# Pytest / Coverage
+.coverage
+*.cover
+htmlcov/
+.tox/
+.nox/
+.pytest_cache/
+.coverage.*
+.cache/
+nosetests.xml
+coverage.xml
+*.mo
+*.pot
+
+# Pydantic / Generated files
+*.pyi
+*.pyd
+
+# Secrets / Configs
+.env
+.env.*.local
+secrets.json
+
