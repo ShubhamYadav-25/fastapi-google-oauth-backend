@@ -1,0 +1,684 @@
+{
+	"info": {
+		"_postman_id": "407916de-5543-4625-8c99-6edd0cc4aa68",
+		"name": "FastAPI Restaurant Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47103021",
+		"_collection_link": "https://cryosat-astronomer-66167593-1976901.postman.co/workspace/SHUBHAM-YADAV's-Workspace~8df37426-b937-4f8b-8a64-f77c48e6840e/collection/47103021-407916de-5543-4625-8c99-6edd0cc4aa68?action=share&source=collection_link&creator=47103021"
+	},
+	"item": [
+		{
+			"name": "Payments",
+			"item": [
+				{
+					"name": "Create Payment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"status\": \"pass\",\n  \"payment_type\": \"card\",\n  \"amount\": 100.0\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/payments/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"payments",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List successful Payments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/payments/?skip=0&limit=10",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"payments",
+								""
+							],
+							"query": [
+								{
+									"key": "skip",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List unsuccessful payments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/payments/unsuccessful/?skip=0&limit=10",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"payments",
+								"unsuccessful",
+								""
+							],
+							"query": [
+								{
+									"key": "skip",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Payment by Transaction ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/payments/{{transaction_id}}",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"payments",
+								"{{transaction_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List by amount",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/payments/filter/amount/?min_amount=200",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"payments",
+								"filter",
+								"amount",
+								""
+							],
+							"query": [
+								{
+									"key": "min_amount",
+									"value": "200"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List by payment type",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/payments/filter/type/?payment_type=UPI",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"payments",
+								"filter",
+								"type",
+								""
+							],
+							"query": [
+								{
+									"key": "payment_type",
+									"value": "UPI"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Customers",
+			"item": [
+				{
+					"name": "Customer Signup",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"token\": \"\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/customers/signup",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"customers",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Customer Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"token\": \"eyJhbGciOiJSUzI1NiIsImtpZCI6ImZiOWY5MzcxZDU3NTVmM2UzODNhNDBhYjNhMTcyY2Q4YmFjYTUxN2YiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI5MzAwMTMzNjM0MDEtMWc3dDRycWx2YW5xcGpsOXN2MGhwMzR1OXBuYnF0ZmsuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI5MzAwMTMzNjM0MDEtMWc3dDRycWx2YW5xcGpsOXN2MGhwMzR1OXBuYnF0ZmsuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTc5OTk4NTIxNDA4NjgzMzEyNjQiLCJlbWFpbCI6InNodWIyNTIwMDVAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5iZiI6MTc2MDc4MDkwMSwibmFtZSI6IlNodWJoYW0gWWFkYXYiLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jS203S2U2MnBWTWNNTXA2RjR0djAyY210VEk5b2Zab3NndWtsS0VhcEtGNHZHa0h3PXM5Ni1jIiwiZ2l2ZW5fbmFtZSI6IlNodWJoYW0iLCJmYW1pbHlfbmFtZSI6IllhZGF2IiwiaWF0IjoxNzYwNzgxMjAxLCJleHAiOjE3NjA3ODQ4MDEsImp0aSI6IjUyMjZlNmVjOWNiYjg5NDc5NWRjYzEyM2ZlMzMyMzRhMDg1MmRiODYifQ.ezxiWLEZi4hom9gN-A-3nBpKc31uJSXIhspsuL2Qp0f-KphFcmhZztlno6zNr5T6wVtaEQf_Uy0M7flmyq26MJP9Kk-mjy7Xjk0qoNmFUkzS-ifuDmcS1cVwafnYvIKHoizQ00elPwO_Sa1rnIz9ooSXHsu7Q1diygfWTZ8WlHY-m59D0QzbRWy4WL1KPTsS9xT_LyYdCAcXpGusNKVSBAhFQTx-MoiXuIiTeVY1ULpAIU0HB94Rvn_7L4BYNLXS6bUEyiWK0IbilD-nQCO_MHaqGM-VUd-Kt5GpcIP-euSJWu0fwPBM6m_rHpqs9BP8aE3n4LEe5Dz3da5QfPygLg\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/customers/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"customers",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Customer Google Token Info",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"token\": \"eyJhbGciOiJSUzI1NiIsImtpZCI6ImZiOWY5MzcxZDU3NTVmM2UzODNhNDBhYjNhMTcyY2Q4YmFjYTUxN2YiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI5MzAwMTMzNjM0MDEtMWc3dDRycWx2YW5xcGpsOXN2MGhwMzR1OXBuYnF0ZmsuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI5MzAwMTMzNjM0MDEtMWc3dDRycWx2YW5xcGpsOXN2MGhwMzR1OXBuYnF0ZmsuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTc5OTk4NTIxNDA4NjgzMzEyNjQiLCJlbWFpbCI6InNodWIyNTIwMDVAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5iZiI6MTc2MDc3MDIwMiwibmFtZSI6IlNodWJoYW0gWWFkYXYiLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jS203S2U2MnBWTWNNTXA2RjR0djAyY210VEk5b2Zab3NndWtsS0VhcEtGNHZHa0h3PXM5Ni1jIiwiZ2l2ZW5fbmFtZSI6IlNodWJoYW0iLCJmYW1pbHlfbmFtZSI6IllhZGF2IiwiaWF0IjoxNzYwNzcwNTAyLCJleHAiOjE3NjA3NzQxMDIsImp0aSI6IjNkZWQ4ZGM2ZTcwMzczNGRiNGJjM2E2OGE1OTUzNmIxYWYzOTljNTUifQ.CP4p-nQRYCd764vkpgHfXRGBLqn7wW7nx_1XQG-HMElYLxMybfKDMyEzTfof3M6y3B206oc5Ksj4nICm_2MFEBqPkakJrK8TxqN5bF_--3yPQEOCDBXGjmYe0rGy-0D7xD4w1pWrncdwSUou1bhJVGFW44_6ExYqUeMKQ-6Fz_0nJDDcPZ4QEy978B5mCWWdE8vzaCtNIsigW-3W5ghyS-c1iAXitzirSJQMkZqhsmAyrpr_8u1CkATleUTA_imno4YX3mPhLvCZM1tM6f01d2HT9Wou7OY1g22IEuba19CPTH7GJrV7zj1u8GcgV4aGP69Mm25lFRnrVoFy5PFDXw\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/customers/google-token-info",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"customers",
+								"google-token-info"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Restaurants",
+			"item": [
+				{
+					"name": "Create Restaurant",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"restaurant_name\": \"XY Restaurant\",\n  \"area\": \"Mumbai\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/restaurants/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"restaurants",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Restaurant by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/restaurants/{{restaurant_id}}",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"restaurants",
+								"{{restaurant_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Restaurants",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/restaurants/?skip=0&limit=10",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"restaurants",
+								""
+							],
+							"query": [
+								{
+									"key": "skip",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Place Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"food_item\": \"chicken manchurian\",\n  \"transaction_id\": \"{{transaction_id}}\",\n  \"restaurant_id\": \"{{restaurant_id}}\",\n  \"customer_id\": \"{{customer_id}}\"\n}\n\n\n"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/orders/place",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"place"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Order by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/orders/{{order_id}}",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"{{order_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Order",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/orders/{{order_id}}",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"{{order_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Analytics",
+			"item": [
+				{
+					"name": "Veg Earnings Bangalore (Analytics)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/analytics/veg_earnings/bangalore",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"analytics",
+								"veg_earnings",
+								"bangalore"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Top customers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/analytics/top-customers",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"analytics",
+								"top-customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Mumbai Last Month Earnings (Analytics)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/analytics/earnings/mumbai_last_month",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"analytics",
+								"earnings",
+								"mumbai_last_month"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Daily Revenue",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/analytics/daily_revenue",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"analytics",
+								"daily_revenue"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Restaurant Summary",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/analytics/restaurant_summary/{{restaurant_id}}",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"analytics",
+								"restaurant_summary",
+								"{{restaurant_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "home",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/app",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"app"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "transaction_id",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "restaurant_id",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "googletokenid",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "order_id",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
